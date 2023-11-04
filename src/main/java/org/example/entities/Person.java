@@ -19,26 +19,32 @@ public class Person {
     }
 
     public void setFirstName(String firstName) {
+
         this.firstName = firstName;
     }
 
     public void setLastName(String lastName) {
+
         this.lastName = lastName;
     }
 
     public void setGradeLevel(int gradeLevel) {
+
         this.gradeLevel = gradeLevel;
     }
 
     public void setEmail(String email) {
+
         this.email = email;
     }
 
     public void setGuardianEmail1(String guardianEmail1) {
+
         this.guardianEmail1 = guardianEmail1;
     }
 
     public void setGuardianEmail2(String guardianEmail2) {
+
         this.guardianEmail2 = guardianEmail2;
     }
 
@@ -46,69 +52,6 @@ public class Person {
         this.teacherId = teacherId;
     }
 
-    //    public int getStudentId() {
-//        return StudentId;
-//    }
-//
-//    public void setStudentId(int studentId) {
-//        StudentID = studentId;
-//    }
-//
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
-//
-//    public int getGradeLevel() {
-//        return gradeLevel;
-//    }
-//
-//    public void setGradeLevel(int gradeLevel) {
-//        this.gradeLevel = gradeLevel;
-//    }
-//
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    public String getGuardianEmail1() {
-//        return guardianEmail1;
-//    }
-//
-//    public void setGuardianEmail1(String guardianEmail1) {
-//        this.guardianEmail1 = guardianEmail1;
-//    }
-//
-//    public String getGetGuardianEmail2() {
-//        return getGuardianEmail2;
-//    }
-//
-//    public void setGetGuardianEmail2(String getGuardianEmail2) {
-//        this.getGuardianEmail2 = getGuardianEmail2;
-//    }
-//
-//    public String getTeacherId() {
-//        return teacherId;
-//    }
-//
-//    public void setTeacherId(String teacherId) {
-//        this.teacherId = teacherId;
-//    }
 
     @Override
     public String toString() {
@@ -122,6 +65,13 @@ public class Person {
                 ", getGuardianEmail2='" + getGuardianEmail2() + '\'' +
                 ", teacherId='" + teacherId + '\'' +
                 '}';
+
     }
-}
+        public String toCSV () {
+
+            return teacherId + "," + email + "," + firstName + "," + lastName;
+            // Modify this line based on the properties of the Person class
+        }
+
+    }
 

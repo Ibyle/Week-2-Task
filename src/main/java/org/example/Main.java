@@ -1,28 +1,22 @@
 package org.example;
 import org.example.entities.Person;
-import org.example.entities.Student;
 import org.example.serviceImplematn.PrincipalServiceImpl;
 import org.example.serviceImplematn.TeacherServiceImpl;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import static org.example.serviceImplematn.StudentDetailsImpl.readExcelDetails;
 import static org.example.serviceImplematn.TeacherServiceImpl.readExcelDetail;
-
-import org.example.entities.Staff.Principal;
-import org.example.entities.Staff.Teacher;
-import org.example.enums.Behaviour;
-import org.example.enums.Qualification;
-import org.example.services.PrincipalServices;
 
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
-
-
-
     public static void main(String[] args) {
         //TeacherServiceImplementation//
-        System.out.println("Teacher Details");
+        System.out.println("------------------------------------Teacher Details-------------------------");
         TeacherServiceImpl teacherService = new TeacherServiceImpl();
         List<Person> teacher = readExcelDetail("Dataset.csv");
 
@@ -31,9 +25,38 @@ public class Main {
 
 
         //StudentDetailsImplementation//
-        System.out.println("Student Details");
-        List<Person> studentDetails = readExcelDetails("Dataset2.csv","");
+        System.out.println("---------------------------------Student Details--------------------------");
+        List<Person> studentDetails = readExcelDetails("Dataset2.csv", "");
 
+    
+
+        writeDataToCSV(teacher, "teachers.csv");
+
+        // Write student data to CSV
+        writeDataToCSV(studentDetails, "students.csv");
+    }
+
+    public static void writeDataToCSV(List<Person> data, String filePath) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
+            // Write header row if necessary
+            // bw.write("Column1,Column2,Column3,Column4"); // Example header row
+
+            // Write data rows
+            for (Person person : data) {
+                // Construct a CSV row for the current person
+                String csvRow = person.toCSV(); // Assuming Person class has a toCSV() method
+
+                // Write the CSV row to the file
+                bw.write(csvRow);
+                bw.newLine(); // Move to the next line
+            }
+
+            System.out.println("Data has been written to " + filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 //PrincipalServices principalServices = new PrincipalServiceImpl();
 
@@ -95,12 +118,4 @@ public class Main {
 //                    System.out.println(course.getName());
 //                }
 //                System.out.println();
-//            }
-        }
-    }
-
-
-
-
-
-
+//}
