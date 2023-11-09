@@ -63,41 +63,53 @@ public class Main {
 
         }
         System.out.println("////////............................BOOK LIBRARY.........................//////");
+        Book book1 = new Book("Things Fall Apart",5,"Chinua Achebe");
+        Book book2 = new Book(" Modern Biology",4,"Janet L. Hopson");
 
-        LibraryServiceImplementation LibraryService = new LibraryServiceImplementation();
-        TeacherServiceImpl teacher = new TeacherServiceImpl();
-        StudentDetailsImpl student = new StudentDetailsImpl();
+        LibraryServiceImplementation librarianService = new LibraryServiceImplementation();
+        System.out.println("PRIORITY QUEQUE");
+        librarianService.teacherSeniorJuniorPriority(TeacherServiceImpl.teacher, StudentDetailsImpl.seniorStudentList, StudentDetailsImpl.juniorStudentList, book1);
+        System.out.println();
+        System.out.println("FIFO");
+        librarianService.firstComeFirstServed(TeacherServiceImpl.teacher, StudentDetailsImpl.seniorStudentList,  StudentDetailsImpl.juniorStudentList, book2);
 
-        //LibraryService.teacherSeniorJuniorPriority(teacher.teachers, seniorStudents, juniorStudents, book);
-
-      // List<Teachers> teachers = new ArrayList<>();
-        List<Person> seniorStudents = new ArrayList<>();
-        List<Person> juniorStudents = new ArrayList<>();
-        Book book = new Book("Indu Paradigm", 4, "Sanjay Singania"); // Sample book with 5 copies
-        List<Book> books = new ArrayList<>();
-        {
-            books.add(new Book("Forex Psychology", 5, "Unknown Author"));
-            books.add(new Book("Geometry", 5, "Unknown Author"));
-            books.add(new Book("Data Science", 5, "Unknown Author"));
-            books.add(new Book("Agile", 5, "Unknown Author"));
-            books.add(new Book("Quality Assurance", 5, "Unknown Author"));
-            // Populate the lists with sample data (teachers, senior students, junior students)
-
-            // Instantiate LibraryServiceImplementation
-            LibraryServiceImplementation libraryService = new LibraryServiceImplementation();
-
-            // Call the methods
-            System.out.println("Using teacherSeniorJuniorPriority method:");
-          //  libraryService.teacherSeniorJuniorPriority(teachers, seniorStudents, juniorStudents, book);
-
-            // Reset book quantity for the second method
-            book.setQuantity(2);
-
-            System.out.println("\nUsing firstComeFirstServed method:");
-            //libraryService.firstComeFirstServed(teachers, seniorStudents, juniorStudents, book);
+//
+//        LibraryServiceImplementation LibraryService = new LibraryServiceImplementation();
+//        TeacherServiceImpl teacher = new TeacherServiceImpl();
+//        StudentDetailsImpl student = new StudentDetailsImpl();
+//
+//        //LibraryService.teacherSeniorJuniorPriority(teacher.teachers, seniorStudents, juniorStudents, book);
+//
+//      // List<Teachers> teachers = new ArrayList<>();
+//        List<Person> seniorStudents = new ArrayList<>();
+//        List<Person> juniorStudents = new ArrayList<>();
+//        Book book = new Book("Indu Paradigm", 4, "Sanjay Singania"); // Sample book with 5 copies
+//        List<Book> books = new ArrayList<>();
+//        {
+//            books.add(new Book("Forex Psychology", 5, "Unknown Author"));
+//            books.add(new Book("Geometry", 5, "Unknown Author"));
+//            books.add(new Book("Data Science", 5, "Unknown Author"));
+//            books.add(new Book("Agile", 5, "Unknown Author"));
+//            books.add(new Book("Quality Assurance", 5, "Unknown Author"));
+//            // Populate the lists with sample data (teachers, senior students, junior students)
+//
+//            // Instantiate LibraryServiceImplementation
+//            LibraryServiceImplementation libraryService = new LibraryServiceImplementation();
+//
+//
+//
+//            // Call the methods
+//            System.out.println("Using teacherSeniorJuniorPriority method:");
+//          //  libraryService.teacherSeniorJuniorPriority(teachers, seniorStudents, juniorStudents, book);
+//
+//            // Reset book quantity for the second method
+//            book.setQuantity(2);
+//
+//            System.out.println("\nUsing firstComeFirstServed method:");
+//            //libraryService.firstComeFirstServed(teachers, seniorStudents, juniorStudents, book);
         }
     }
-}
+
 
 
 
