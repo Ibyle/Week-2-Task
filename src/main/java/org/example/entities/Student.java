@@ -25,6 +25,12 @@ import java.util.HashSet;
             this.courses = new HashSet<>();
         }
 
+        public Student() {
+
+            courses = null;
+            name = null;
+        }
+
         public void addCourse(Course course) {
             courses.add(course);
 
