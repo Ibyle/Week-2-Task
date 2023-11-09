@@ -68,9 +68,9 @@ public class Main {
         TeacherServiceImpl teacher = new TeacherServiceImpl();
         StudentDetailsImpl student = new StudentDetailsImpl();
 
-        LibraryService.teacherSeniorJuniorPriority(teacher.teachers, seniorStudents, juniorStudents, book);
+        //LibraryService.teacherSeniorJuniorPriority(teacher.teachers, seniorStudents, juniorStudents, book);
 
-        teachers = new ArrayList<>();
+      // List<Teachers> teachers = new ArrayList<>();
         List<Person> seniorStudents = new ArrayList<>();
         List<Person> juniorStudents = new ArrayList<>();
         Book book = new Book("Indu Paradigm", 4, "Sanjay Singania"); // Sample book with 5 copies
@@ -88,13 +88,13 @@ public class Main {
 
             // Call the methods
             System.out.println("Using teacherSeniorJuniorPriority method:");
-            libraryService.teacherSeniorJuniorPriority(teachers, seniorStudents, juniorStudents, book);
+          //  libraryService.teacherSeniorJuniorPriority(teachers, seniorStudents, juniorStudents, book);
 
             // Reset book quantity for the second method
             book.setQuantity(2);
 
             System.out.println("\nUsing firstComeFirstServed method:");
-            libraryService.firstComeFirstServed(teachers, seniorStudents, juniorStudents, book);
+            //libraryService.firstComeFirstServed(teachers, seniorStudents, juniorStudents, book);
         }
     }
 }
