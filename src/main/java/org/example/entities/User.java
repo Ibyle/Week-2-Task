@@ -5,11 +5,13 @@ import lombok.Getter;
 import org.example.enums.Nationality;
 import org.example.enums.State;
 
+import javax.management.relation.Role;
 import java.time.LocalDate;
 
 @Getter
 @Data
 public abstract class User {
+    @Getter
     private String firstName;
     private String lastName;
     private String name;
@@ -20,10 +22,11 @@ public abstract class User {
     private Nationality nationality;
     private State state;
     private String email;
+//    private Role role;
 
-    public String getFirstName() {
-        return firstName;
-    }
+//    public void setRole(Role role) {
+//        this.role = role;
+//    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;

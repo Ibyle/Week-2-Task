@@ -1,12 +1,19 @@
 package org.example;
+import org.example.comparator.RoleComparator;
+import org.example.entities.Book;
 import org.example.entities.Person;
+import org.example.serviceImplematn.LibraryServiceImplementation;
 import org.example.serviceImplematn.PrincipalServiceImpl;
+import org.example.serviceImplematn.StudentDetailsImpl;
 import org.example.serviceImplematn.TeacherServiceImpl;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
+
 import static org.example.serviceImplematn.StudentDetailsImpl.readExcelDetails;
 import static org.example.serviceImplematn.TeacherServiceImpl.readExcelDetail;
 
@@ -28,7 +35,6 @@ public class Main {
         System.out.println("---------------------------------Student Details--------------------------");
         List<Person> studentDetails = readExcelDetails("Dataset2.csv", "");
 
-    
 
         writeDataToCSV(teacher, "teachers.csv");
 
@@ -54,9 +60,56 @@ public class Main {
             System.out.println("Data has been written to " + filePath);
         } catch (IOException e) {
             e.printStackTrace();
+
+        }
+        System.out.println("////////............................BOOK LIBRARY.........................//////");
+
+        LibraryServiceImplementation LibraryService = new LibraryServiceImplementation();
+        TeacherServiceImpl teacher = new TeacherServiceImpl();
+        StudentDetailsImpl student = new StudentDetailsImpl();
+
+        LibraryService.teacherSeniorJuniorPriority(teacher.teachers, seniorStudents, juniorStudents, book);
+
+        teachers = new ArrayList<>();
+        List<Person> seniorStudents = new ArrayList<>();
+        List<Person> juniorStudents = new ArrayList<>();
+        Book book = new Book("Indu Paradigm", 4, "Sanjay Singania"); // Sample book with 5 copies
+        List<Book> books = new ArrayList<>();
+        {
+            books.add(new Book("Forex Psychology", 5, "Unknown Author"));
+            books.add(new Book("Geometry", 5, "Unknown Author"));
+            books.add(new Book("Data Science", 5, "Unknown Author"));
+            books.add(new Book("Agile", 5, "Unknown Author"));
+            books.add(new Book("Quality Assurance", 5, "Unknown Author"));
+            // Populate the lists with sample data (teachers, senior students, junior students)
+
+            // Instantiate LibraryServiceImplementation
+            LibraryServiceImplementation libraryService = new LibraryServiceImplementation();
+
+            // Call the methods
+            System.out.println("Using teacherSeniorJuniorPriority method:");
+            libraryService.teacherSeniorJuniorPriority(teachers, seniorStudents, juniorStudents, book);
+
+            // Reset book quantity for the second method
+            book.setQuantity(2);
+
+            System.out.println("\nUsing firstComeFirstServed method:");
+            libraryService.firstComeFirstServed(teachers, seniorStudents, juniorStudents, book);
         }
     }
 }
+
+
+
+
+
+// Add some teachers, senior students, and junior students to the lists
+
+//        LibraryServiceImplementation LibraryService = new LibraryServiceImplementation();
+//        PriorityQueue<Person> person =
+
+//}TeacherServiceImpl teacherService = new TeacherServiceImpl();
+//    List<Person> teacher = readExcelDetail("Dataset.csv");
 
 //PrincipalServices principalServices = new PrincipalServiceImpl();
 

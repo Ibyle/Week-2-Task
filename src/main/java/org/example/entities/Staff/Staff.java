@@ -1,11 +1,9 @@
 package org.example.entities.Staff;
 
 import org.example.entities.User;
-import org.example.enums.Roles;
+import org.example.enums.Role;
 
-import javax.management.relation.Role;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 
 public abstract class Staff extends User {

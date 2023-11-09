@@ -1,11 +1,12 @@
 package org.example.entities.Staff;
 
 import lombok.Getter;
+import org.example.entities.Person;
 import org.example.enums.CourseName;
 import org.example.enums.Qualification;
 
 @Getter
-public class Teacher extends Staff {
+public class Teacher extends Person {
     private String certification;
     private String Specification;
     private String teacherId;

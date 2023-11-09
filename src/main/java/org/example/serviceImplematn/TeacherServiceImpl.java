@@ -3,6 +3,7 @@ package org.example.serviceImplematn;
 import org.example.entities.Person;
 import org.example.entities.Staff.Teacher;
 import org.example.entities.Student;
+import org.example.enums.Role;
 import org.example.services.TeacherServices;
 
 import java.io.BufferedReader;
@@ -34,8 +35,9 @@ if (student.getScore()>= 80 && student.getScore()<=100){
 
     }
 
+    public static List<Person> teacher = new ArrayList<>();
+
     public static List<Person> readExcelDetail(String filePath) {
-        List<Person> teacher = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -52,6 +54,8 @@ if (student.getScore()>= 80 && student.getScore()<=100){
                     user.setEmail(values[1].trim());
                     user.setFirstName(values[2].trim());
                     user.setLastName(values[3].trim());
+                    user.setRole(Role.Teacher);
+
                     teacher.add(user);
                     System.out.println("TEACHER ID: " + user.getTeacherId() + ",             Email: " + user.getEmail() + ",                 FirstName: " + user.getFirstName() + ",              LastName: " + user.getLastName());
                     // }
