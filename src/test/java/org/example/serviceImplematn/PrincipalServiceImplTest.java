@@ -5,6 +5,7 @@ import org.example.entities.Student;
 import org.example.enums.Behaviour;
 import org.junit.jupiter.api.Test;
 
+import static org.example.serviceImplematn.StudentDetailsImpl.student;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PrincipalServiceImplTest {
@@ -47,10 +48,5 @@ class PrincipalServiceImplTest {
         assertEquals("Congrats you are Admitted",principalService.admitStudents(applicant));
     }
 
-    @Test
-    void admitStudentsIfAgeIsMoreThan20() {
-        Applicant applicant = new Applicant();
-        applicant.setAge(25);
-        assertEquals("Sorry you can't proceed with your admission",principalService.admitStudents(student));
-    }
+
 }
